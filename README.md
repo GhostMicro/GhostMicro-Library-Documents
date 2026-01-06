@@ -108,12 +108,3 @@ nav:
 *Documented by Antigravity (Genesis AI)*
 
 ---
-
-## หมายเหตุ
-
-ต้องสั่ง คำสั่งนี้เสมอเมื่อมีการเปลี่ยนแปลง ไม่รู้ทำไม แต่ Gemini ตั่งค่าแบบนี้ ซึ่งมันไม่ถูกต้อง และ ฉันไม่สามารถคุยกับ Gemini ให้ทำตามคำสั่งได้ เลยต้องใช้วิธีนี้ไปก่อน
-
-```bash
-pkill -f "mkdocs serve" && cd /media/devg/Micro-SV6/GitHub/GhostMicro/GhostMicro-Library-Documents && nohup ./venv/bin/mkdocs serve -a 127.0.0.1:8081 > /dev/null 2>&1 &
-[1] 395548
-```
