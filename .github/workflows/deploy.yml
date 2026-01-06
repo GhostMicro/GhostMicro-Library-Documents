@@ -3,7 +3,10 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches:
-      - main  # หรือชื่อ branch หลักของคุณ เช่น master
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
@@ -21,6 +24,8 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-static-i18n
 
-      - name: Deploy to GitHub Pages
+      - name: Build and Deploy
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdocs gh-deploy --force
