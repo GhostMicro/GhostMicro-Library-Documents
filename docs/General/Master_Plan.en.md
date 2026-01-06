@@ -44,10 +44,12 @@ Strategic roadmap towards becoming a professional IoT Generator tool and Licensi
 - [ ] **GhostMicro Firmware Flasher**: Ready-made web-based firmware flashing system.
 - [ ] **Autonomous Navigation**: Full autonomous navigation systems (SLAM).
 
-### Stage 5: Standardization & Professional Deployment
+### Stage 5: Standardization & HW Enablement (In Progress 🚧)
 - [x] **Genesis Dev-Kit**: Released standard manual and Config Template for developers ✅
-- [ ] **Ghost Shell**: Standard 3D printed robot cases and structures.
-- [ ] **Commercial Licensing**: Commercial registration and licensing system.
+- [x] **Hardware BOM**: Standardized component list for the HW team ✅
+- [x] **Firmware Readiness**: Network updated to support various physical body types ✅
+- [ ] **GhostMicro PCB v1.0**: Standard PCB design for ESP32 ecosystem
+- [ ] **Physical Prototype**: Assembling the actual robot and farm prototypes.
 
 
 ---

@@ -60,6 +60,7 @@ nav:
   - 01 Central Hub: 01_ส่วนกลางหลัก/NOTE.md
   - 02 Core IoT:
     - Architecture Blueprint: 02_core_iot/Architecture_Blueprint.md
+    - Hardware BOM: 02_core_iot/Hardware_BOM.md
     - Firmware Guide: 02_core_iot/Firmware_Guide.md
     - Genesis Reflex Protocol: 02_core_iot/Genesis_Reflex_Protocol.md
     - Identity System: 02_core_iot/Identity_System.md
