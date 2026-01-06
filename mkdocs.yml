@@ -22,6 +22,7 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+  language: en
   features:
     - navigation.tabs
     - navigation.sections
@@ -45,6 +46,28 @@ markdown_extensions:
 
 plugins:
   - search
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          name: English
+          default: true
+        - locale: th
+          name: ไทย
 
 nav:
   - Home: index.md
+  - General:
+    - Inspiration: General/inspiration.md
+    - Master Plan: General/Master_Plan.md
+    - System Architecture: General/System_Architecture_Layers.md
+    - Developer Kit: General/GENESIS_DEV_KIT.md
+    - Project Index: General/PROJECT_INDEX.md
+    - API Guide: General/API_REQUEST_GUIDE.md
+    - Resumption Guide: General/Resumption_Guide.md
+    - Logs: General/Logs/
+    - AI GhostCore:
+      - AI Customization Guide: General/AI_Customization_Guide.md
+      - AI Dashboard Architecture: General/AI_Dashboard_Architecture.md
+  - AI Rules:
+    - Core Memory: AI_Rules/Core_Memory.md

@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+ENV/
+env/
+.env
+
+# MkDocs
+site/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# General
+*.log
+nohup.out
+.agent-collaboration/serve_docs.sh
+# Note: Keep other files in .agent-collaboration for documentation continuity
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo

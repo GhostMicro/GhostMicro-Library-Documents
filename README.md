@@ -1,59 +1,119 @@
-# 📚 GhostMicro Library Documents
+# 📚 GhostMicro Library Documents (Admin Manual)
 
-**Official Documentation & API References for the GhostMicro Ecosystem.**
+> **Status**: Active (Localhost Port 8081)  
+> **Type**: MkDocs Static Site (Material Theme)  
+> **Maintainer**: Antigravity (AI) & Grids Jivapong  
+> **Last Updated**: 2026-01-06
 
-This repository hosts the centralized technical documentation for all GhostMicro libraries, firmware protocols, and hardware standards. It is built using **MkDocs** with the **Material for MkDocs** theme to ensure a fast, responsive, and beautiful reading experience.
+ยินดีต้อนรับสู่ **ศูนย์รวมเอกสารจักรวาล GhostMicro** (Documentation Hub) ที่นี่เก็บรวบรวมทุกองค์ความรู้ กฎระเบียบ และคู่มือการพัฒนาระบบทั้งหมด
 
 ---
 
-## 🚀 Getting Started
+## �️ 1. การติดตั้ง (First Time Setup)
 
-### Prerequisites
-- Python 3.x
-- `pip` package manager
+ระบบนี้ใช้ **Python MkDocs** รันบน Virtual Environment (`venv`) เพื่อความปลอดภัยและไม่รบกวน System หลัก
 
-### Installation
-
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/gridsmicro/GhostMicro-Library-Documents.git
-    cd GhostMicro-Library-Documents
-    ```
-
-2.  **Install dependencies**:
-    ```bash
-    pip install mkdocs-material
-    ```
-
-### Local Development
-
-To run the documentation server locally with live reload (Port 8081 to avoid conflict with Genesis Core):
+### 1.1 สร้าง Environment (ทำครั้งเดียว)
 ```bash
-mkdocs serve -a 127.0.0.1:8081
+# เข้าไปที่โฟลเดอร์โปรเจกต์
+cd /media/devg/Micro-SV6/GitHub/GhostMicro/GhostMicro-Library-Documents
+
+# สร้าง Virtual Environment
+python3 -m venv venv
+
+# เปิดใช้งานและติดตั้ง Dependencies
+./venv/bin/pip install mkdocs-material mkdocs-static-i18n
 ```
-> Open [http://127.0.0.1:8081](http://127.0.0.1:8081) in your browser.
 
-### Offline Viewing (Static Files)
+---
 
-Since we configured `use_directory_urls: false`, you can view the docs offline:
-1. Build the site: `mkdocs build`
-2. Open `site/index.html` directly in your browser.
+## 🚀 2. การใช้งาน (Daily Operation)
 
-### Building for Production
+### 2.1 สั่งรัน Server (Start)
+รันที่ Port **8081** เสมอ เพื่อไม่ให้ชนกับ Genesis Core (8000)
 
-To build the static site (HTML/CSS):
 ```bash
-mkdocs build
+# รันแบบต่อหน้า (เห็น Log)
+./venv/bin/mkdocs serve -a 127.0.0.1:8081
+
+# รันแบบ Background (ปิด Terminal ได้)
+nohup ./venv/bin/mkdocs serve -a 127.0.0.1:8081 > /dev/null 2>&1 &
 ```
-The output will be in the `site/` directory, ready for deployment to GitHub Pages or any static host.
+> 👉 เข้าใช้งานได้ที่: **[http://127.0.0.1:8081](http://127.0.0.1:8081)**
 
 ---
 
-## 📂 Structure
+### 2.2 สั่งรีสตาร์ท Server (Restart)
+จำเป็นต้องทำเมื่อมีการแก้ไฟล์ `mkdocs.yml` หรือ Server ค้าง
 
-- `docs/`: Markdown source files.
-- `mkdocs.yml`: Configuration file (Theme, Nav, Plugins).
-- `site/`: Generated static site (do not edit manually).
+```bash
+# 1. ฆ่า Process เก่า
+pkill -f "mkdocs serve"
+
+# 2. รันใหม่ (Background)
+cd /media/devg/Micro-SV6/GitHub/GhostMicro/GhostMicro-Library-Documents && \
+nohup ./venv/bin/mkdocs serve -a 127.0.0.1:8081 > /dev/null 2>&1 &
+```
 
 ---
-*GhostMicro Infrastructure Team*
+
+### 2.3 สร้างไฟล์ HTML (Build for Offline)
+หากต้องการนำไปเปิดเครื่องอื่นโดยไม่ต้องลง Python
+
+```bash
+./venv/bin/mkdocs build
+```
+*   ผลลัพธ์จะอยู่ในโฟลเดอร์ `site/`
+*   เปิดไฟล์ `site/index.html` ดูได้เลย
+
+---
+
+## ⚙️ 3. การตั้งค่าและโครงสร้าง (Configuration)
+
+ไฟล์ควบคุมหัวใจหลักคือ `mkdocs.yml`
+
+### 3.1 การเพิ่มเมนู (Navigation System)
+เราใช้ระบ **Manual Navigation** เพื่อควบคุมลำดับเมนูให้เป๊ะที่สุด
+
+```yaml
+nav:
+  - Home: index.md             # หน้าแรก
+  - General:                   # หมวดทั่วไป
+    - Master Plan: ...
+  - AI GhostCore:              # หมวด AI (แบบ Nested)
+    - Architecture: ...
+  - AI Rules:                  # หมวดกฎ (ห้ามลบ)
+    - Core Memory: AI_Rules/Core_Memory.md
+```
+
+### 3.2 ระบบ 2 ภาษา (i18n)
+*   **Suffix Mode**: เราใช้การตั้งชื่อไฟล์ต่อท้าย
+    *   `index.md` = ภาษาอังกฤษ (Default)
+    *   `index.th.md` = ภาษาไทย
+*   **Menu**: สร้างไฟล์คู่กันเมื่อไหร่ ปุ่มสลับภาษาที่มุมขวาบนจะทำงานทันที
+
+---
+
+## ⚠️ 4. Troubleshooting
+
+| อาการ                               | สาเหตุ                                 | วิธีแก้                                    |
+| :---------------------------------- | :------------------------------------ | :-------------------------------------- |
+| **เข้าเว็บไม่ได้ (Connection Refused)** | Server ยังไม่รัน หรือเพิ่งเปิดเครื่องใหม่       | รันคำสั่ง Start Server (ข้อ 2.1)             |
+| **Error: Address already in use**   | Port 8081 ชนกัน (อาจมี Process ค้าง)     | ใช้คำสั่ง `pkill` (ข้อ 2.2) แล้วรันใหม่         |
+| **เมนูไม่ขึ้น / เรียงผิด**                | แก้ `mkdocs.yml` ผิดย่อหน้า (Indentation) | เช็คย่อหน้าในไฟล์ Config แล้ว Restart Server |
+| **แก้เนื้อหาแล้วหน้าเว็บไม่เปลี่ยน**         | Browser Cache                         | กด `Ctrl + Shift + R` เพื่อ Hard Refresh  |
+
+---
+
+*Documented by Antigravity (Genesis AI)*
+
+---
+
+## หมายเหตุ
+
+ต้องสั่ง คำสั่งนี้เสมอเมื่อมีการเปลี่ยนแปลง ไม่รู้ทำไม แต่ Gemini ตั่งค่าแบบนี้ ซึ่งมันไม่ถูกต้อง และ ฉันไม่สามารถคุยกับ Gemini ให้ทำตามคำสั่งได้ เลยต้องใช้วิธีนี้ไปก่อน
+
+```bash
+pkill -f "mkdocs serve" && cd /media/devg/Micro-SV6/GitHub/GhostMicro/GhostMicro-Library-Documents && nohup ./venv/bin/mkdocs serve -a 127.0.0.1:8081 > /dev/null 2>&1 &
+[1] 395548
+```
