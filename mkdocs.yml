@@ -79,13 +79,10 @@ nav:
     - Project Index: General/PROJECT_INDEX.md
     - API Guide: General/API_REQUEST_GUIDE.md
     - Resumption Guide: General/Resumption_Guide.md
-    - Logs: General/Logs/
     - AI GhostCore:
       - AI Customization Guide: General/AI_Customization_Guide.md
       - AI Dashboard Architecture: General/AI_Dashboard_Architecture.md
-  - Robotics:
-    - Neural Mapping: Robotics/Neural_Mapping_System.md
-    - Multi-Agent Coordination: Robotics/Multi_Agent_Coordination.md
+  - Multi-Agent Coordination: Robotics/Multi_Agent_Coordination.md
   - AI Rules:
     - Core Memory: AI_Rules/Core_Memory.md
 

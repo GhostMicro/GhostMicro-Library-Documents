@@ -1,18 +1,18 @@
 # 🎋 IoT Smart Farm (Genesis Edition)
 
-> *"ดูแลการเกษตรด้วยสัญชาตญาณและความรัก"*
+> *"Agricultural care with instinct and love."*
 
-โมดูล Smart Farm ของ GhostMicro เน้นการควบคุมทรัพยากรน้ำและติดตามสภาพแวดล้อมโดยมี AI คอยดูแล
+The GhostMicro Smart Farm module focuses on water resource control and environmental monitoring, overseen by the AI.
 
 ---
 
-## 🛠️ อุปกรณ์ที่ใช้ (HW List)
-1. **Soil Moisture Sensor**: วัดความชื้นในดิน
-2. **Relay Module**: ควบคุมปั๊มน้ำ
-3. **DHT22**: วัดอุณหภูมิและความชื้นสัมพัทธ์ในอากาศ
+## 🛠️ Hardware Requirements (HW List)
+1. **Soil Moisture Sensor**: Measures soil moisture levels.
+2. **Relay Module**: Controls water pumps.
+3. **DHT22**: Measures temperature and relative air humidity.
 
-## 🧠 บทบาทของ AI (Nong Nob)
-AI จะทำหน้าที่วิเคราะห์ว่า "พืชกำลังหิวน้ำหรือไม่" จากค่าเซนเซอร์ที่ส่งเข้ามา แทนที่จะตั้งเวลาเปิดปิดน้ำแบบดั้งเดิม
+## 🧠 AI Role (Nong Nob)
+The AI analyzes whether "the plants are thirsty" based on incoming sensor data, rather than using traditional timer-based watering systems.
 
 ---
 *Powered by GhostMicro Engineering Team*
