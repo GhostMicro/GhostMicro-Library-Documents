@@ -57,6 +57,19 @@ plugins:
 
 nav:
   - Home: index.md
+  - 01 Central Hub: 01_ส่วนกลางหลัก/NOTE.md
+  - 02 Core IoT:
+    - Architecture Blueprint: 02_core_iot/Architecture_Blueprint.md
+    - Firmware Guide: 02_core_iot/Firmware_Guide.md
+    - Genesis Reflex Protocol: 02_core_iot/Genesis_Reflex_Protocol.md
+    - Identity System: 02_core_iot/Identity_System.md
+  - 03 IoT Smart Farm: 03_iot_smart_farm/index.md
+  - 04 IoT Smart Home: 04_iot_smart_home/index.md
+  - 05 IoT Robot:
+    - Body System Walkthrough: 05_iot_robot/Body_System_Walkthrough.md
+    - Neural Mapping System: 05_iot_robot/Neural_Mapping_System.md
+    - Robotics Specifications: 05_iot_robot/Robotics_Specifications.md
+    - The Soul Walkthrough: 05_iot_robot/The_Soul_Walkthrough.md
   - General:
     - Inspiration: General/inspiration.md
     - Master Plan: General/Master_Plan.md
@@ -69,5 +82,9 @@ nav:
     - AI GhostCore:
       - AI Customization Guide: General/AI_Customization_Guide.md
       - AI Dashboard Architecture: General/AI_Dashboard_Architecture.md
+  - Robotics:
+    - Neural Mapping: Robotics/Neural_Mapping_System.md
+    - Multi-Agent Coordination: Robotics/Multi_Agent_Coordination.md
   - AI Rules:
     - Core Memory: AI_Rules/Core_Memory.md
+
