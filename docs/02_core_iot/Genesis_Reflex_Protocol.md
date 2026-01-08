@@ -2,7 +2,7 @@
 
 > *"ภาษาที่ใช้ในการสื่อสารระหว่าง กายหยาบ (Hardware) และ จิตวิญญาณ (Core AI)"*
 
-โปรโตคอล Genesis ออกแบบมาให้มีน้ำหนักเบา (JSON-based) และทำงานผ่าน **Socket.IO** เพื่อการรับส่งข้อมูลแบบ Real-time (Bi-directional)
+โปรโตคอล Genesis ออกแบบมาให้มีน้ำหนักเบา (JSON-based) และทำงานผ่าน **Socket.IO** เพื่อการรับส่งข้อมูลแบบ Real-time (Bi-directional) โดยทำหน้าที่เป็นสะพานเชื่อมหลักตามแผนงานใน [**Phase 3: Ecosystem Integration**](../01_ส่วนกลางหลัก/Phase3.md)
 
 ---
 

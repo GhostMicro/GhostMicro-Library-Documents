@@ -30,8 +30,11 @@ Our system is not just code; it is designed to be **"Alive"** through a three-la
 ## 🗺️ Navigation Map
 
 *   **🏠 Home**: This landing page.
+*   **🌐 Core IoT**: Basic infrastructure, dashboard links, and hardware protocols.
+*   **🌾 Smart Farm**: Agricultural monitoring and control (managed by Nong Nob).
+*   **🏡 Smart Home**: Home automation and environment management.
+*   **🤖 IoT Robot**: Robotics mechanics, neural mapping, and movement logic.
 *   **📂 General**: Vision, Master Plan, Logs, and Blueprint.
-*   **🤖 AI GhostCore**: Persona Customization and Brain Architecture.
 *   **⚖️ AI Rules**: Supreme Laws and Core Memory (Must obey).
 
 ---

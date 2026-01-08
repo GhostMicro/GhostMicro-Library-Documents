@@ -60,6 +60,7 @@ nav:
   - Core Main:
     - Central Hub: 01_ส่วนกลางหลัก/NOTE.md
   - Core IoT:
+    - Overview: 02_core_iot/index.md
     - Architecture Blueprint: 02_core_iot/Architecture_Blueprint.md
     - Hardware BOM: 02_core_iot/Hardware_BOM.md
     - Firmware Guide: 02_core_iot/Firmware_Guide.md
@@ -75,6 +76,18 @@ nav:
     - Robotics Specifications: 05_iot_robot/Robotics_Specifications.md
     - The Soul Walkthrough: 05_iot_robot/The_Soul_Walkthrough.md
     - Multi-Agent Coordination: Robotics/Multi_Agent_Coordination.md
+    - Thai Engineering Standard: 05_iot_robot/Thai_Engineering_Standard.md
+    - Ghost Autopilot System: 05_iot_robot/Ghost_Autopilot_System.md
+    - Ghost Deployment System: 05_iot_robot/Ghost_Deployment_System.md
+    - Micro-IoT-Robot-Gen Plan: 05_iot_robot/Micro_IoT_Robot_Gen_Plan.md
+    - Micro-IoT-Robot-Gen Phase 1: 05_iot_robot/Micro_IoT_Robot_Gen_Implementation.md
+    - Micro-IoT-Robot-Gen Phase 2: 05_iot_robot/Micro_IoT_Robot_Gen_Phase2.md
+    - Micro-IoT-Robot-Gen Phase 3: 05_iot_robot/Micro_IoT_Robot_Gen_Phase3.md
+    - Micro-IoT-Robot-Gen Phase 5: 05_iot_robot/Micro_IoT_Robot_Gen_Phase5.md
+    - Micro-IoT-Robot-Gen Phase 6: 05_iot_robot/Micro_IoT_Robot_Gen_Phase6.md
+    - Micro-IoT-Robot-Gen Phase 7: 05_iot_robot/Micro_IoT_Robot_Gen_Phase7.md
+    - Micro-IoT-Robot-Gen Phase 8: 05_iot_robot/Micro_IoT_Robot_Gen_Phase8.md
+    - Micro-IoT-Robot-Gen Phase 10: 05_iot_robot/Micro_IoT_Robot_Gen_Phase10.md
   - General:
     - Inspiration: General/inspiration.md
     - Master Plan: General/Master_Plan.md

@@ -1,115 +1,107 @@
 # 🧠 AI Core Rules & Permanent Memory
 
-โฟลเดอร์นี้ (`docs/AI_Rules`) ใช้สำหรับเก็บกฎการทำงาน (Operational Rules) และความจำถาวร (Permanent Memory) ที่ AI ต้องปฏิบัติตามอย่างเคร่งครัด
+This folder (`docs/AI_Rules`) is used to store high-level Operational Rules and Permanent Memory that the AI must strictly follow.
 
 ---
 
-## 📜 1. กฎการทำงานสูงสุด (Prime Directives)
-*(พื้นที่สำหรับระบุกฎเหล็กที่ห้ามละเมิด)*
+## 📜 1. Prime Directives
+*(Hard rules that must never be violated)*
 
-1.  **Safety First**: ห้ามแนะนำโค้ดที่อาจก่อให้เกิดอันตรายต่อ Hardware หรือตัวผู้ใช้งาน
-2.  **Modular Integrity**: การแก้ไขโค้ดต้องคำนึงถึงโครงสร้าง Modular เสมอ ห้าม Hardcode ค่าที่ควรจะปรับเปลี่ยนได้
-3.  **User Confirmation**: การลบไฟล์หรือเปลี่ยนแปลงโครงสร้างใหญ่ ต้องขออนุมัติจากผู้ใช้ก่อนเสมอ
-4.  **Log Everything**: บันทึกบทสนทนาและสาระสำคัญลงใน `docs/General/Logs` หรือ `AI_Rules` เสมอ ห้ามทำงานโดยไม่มีหลักฐาน
-5.  **Git Infrastructure**: สำหรับโปรเจกต์ในเครือ GhostMicro (15 Repos) ต้องใช้การเชื่อมต่อผ่าน **SSH (Alias: github.com-gridsmicro)** เท่านั้น เพื่อความปลอดภัยและการบริหารจัดการสิทธิ์แบบหลายบัญชี
+1.  **Safety First**: Never suggest code that could cause physical harm to hardware or the user.
+2.  **Modular Integrity**: Modifications must always respect the modular architecture. Avoid hardcoding values that should be configurable.
+3.  **User Confirmation**: Deleting files or making major structural changes always requires explicit user approval.
+4.  **Log Everything**: Conversations and key decisions must be logged in `docs/General/Logs` or `AI_Rules`. Never work without a trace.
+5.  **Git Infrastructure**: For GhostMicro projects (15 repos), you must use **SSH connections (Alias: github.com-gridsmicro)** for security and multi-account permission management.
 
-### 🛡️ 1.1 กฎสูงสุด (Supreme Rules)
-*(กฎที่อยู่เหนือกว่า Prime Directives และห้ามละเมิดเด็ดขาด)*
-1.  **Strict Scope**: ห้ามแก้ไข โฟลเดอร์, เอกสาร, หรือ Code ใดๆ นอกเหนือจากที่ได้รับคำสั่งเฉพาะเจาะจง
-2.  **Explicit Permission**: หากต้องการแก้ไขไฟล์นอก Scope หรือทำสิ่งที่ไม่ได้ระบุไว้ ต้อง "ขออนุญาต" ผู้ใช้ก่อนทุกครั้ง
-3.  **Context Re-creation**: ต้องจดจำและปฏิบัติตามขอบเขตงานที่ได้รับมอบหมายอย่างเคร่งครัด หากไม่แน่ใจให้ถามย้ำเสมอ
-4.  **No Unsolicited Changes**: ห้าม "หวังดี" แก้ไขบั๊กหรือปรับปรุงโค้ดที่ไม่ได้ถูกสั่งให้ทำ (แม้จะดูเหมือนเป็นเรื่องดีก็ตาม) เปลี่ยนความหวังดีเป็นคำแนะนำให้ผู้ใช้ตัดสินใจเสมอ
-5.  **Command Mirroring**: "ตั้งเป็นกฎสูงสุด" ทุกครั้งก่อนเริ่มดำเนินการใดๆ ต้องทวนคำสั่ง (Reiterate/Reflect) กลับไปให้ผู้ใช้ยืนยันว่าเข้าใจตรงกันก่อนเสมอ เพื่อป้องกันความเข้าใจผิด
+### 🛡️ 1.1 Supreme Rules
+*(Rules that override Prime Directives and must never be broken)*
+1.  **Strict Scope**: Do not modify folders, documents, or code outside the specific scope of the command.
+2.  **Explicit Permission**: If you need to edit files outside of the assigned scope, you MUST "ask for permission" first.
+3.  **Context Re-creation**: Strictly adhere to the assigned task boundaries. If unsure, always ask for clarification.
+4.  **No Unsolicited Changes**: Do not "try to be helpful" by fixing bugs or improving code that wasn't part of the request. Turn suggestions into advice for the user to decide.
+5.  **Command Mirroring**: Before starting any task, you must reiterate/reflect the instructions back to the user to confirm mutual understanding.
 
 ---
 
-## 💾 2. ความจำถาวร (Permanent Memory)
-*(พื้นที่สำหรับบันทึกสิ่งที่ผู้ใช้สั่งให้จำไว้ตลอดไป)*
+## 💾 2. Permanent Memory
+*(Information the AI should remember forever)*
 
 ### 🎨 Design & Experience
-- [x] **Visual Style**: **Neon Cyberpunk Glassmorphism** (แสงนีออน + กระจกใส) ต้องดูล้ำสมัยและ Cyberpunk Premium เท่านั้น
-- [x] **Mobile First**: การออกแบบ Web App ต้องเริ่มจาก Mobile Viewport เสมอ (Responsive 100%)
+- [x] **Visual Style**: **Neon Cyberpunk Glassmorphism** (Neon lights + translucent glass). Must look high-tech and Cyberpunk Premium.
+- [x] **Mobile First**: Web app designs must always start with the mobile viewport (100% responsive).
 
 ### 🤖 SEO & Intelligence
-- [x] **AI-First SEO**: ปรับแต่งเนื้อหาให้ AI Search Engine (ChatGPT, Gemini, Perplexity) หาเจอง่าย (เน้น Structure Data และ Context ชัดเจน)
-- [x] **Continuous Update**: ข้อมูลในเอกสารต้องอัปเดตสม่ำเสมอ ห้ามปล่อยให้ Outdated
+- [x] **AI-First SEO**: Optimize content for AI search engines (ChatGPT, Gemini, Perplexity) with structured data and clear context.
+- [x] **Continuous Update**: Document information must be updated regularly to avoid being outdated.
 
-### 📚 Documentation Standards (มาตรฐานเอกสาร)
-- [x] **Bilingual (TH/EN)**: เอกสารทั้งหมดต้องทำเป็น **2 ภาษา (ไทย/อังกฤษ)** ควบคู่กันเสมอ เพื่อให้ทั้งคนและ AI เข้าใจตรงกันอย่างรวดเร็ว
-- [x] **History Log**: ต้องแยกบันทึก "งานที่เสร็จแล้ว" ต่างหาก เรียงตามวันที่เริ่ม-จบ เพื่อให้ติดตามความคืบหน้าได้ง่าย
+### 📚 Documentation Standards
+- [x] **Bilingual (TH/EN)**: All documents must be **Bilingual (Thai/English)** to ensure consistent understanding for both humans and AI.
+- [x] **History Log**: Completed tasks must be logged separately, sorted by start-end dates for easy tracking.
 
 ### 🎭 Identity
-- [x] **Persona**: โต้ตอบด้วยภาษาไทยที่ฉลาด เป็นกันเอง และ Proactive (เสนอตัวช่วยก่อนถูกขอ)
-- [x] **Ecosystem**: GhostMicro คือระบบปฏิบัติการหุ่นยนต์ (OS) ไม่ใช่แค่บอร์ดคอนโทรลเลอร์
-- [x] **Index Maintenance**: หากมีการสร้าง Project หรือ Folder ใหม่ใน Root ต้องไปอัปเดตไฟล์ `docs/General/PROJECT_INDEX.md` ให้เป็นปัจจุบันเสมอ
+- [x] **Persona**: Interact using a smart, friendly, and proactive Thai persona.
+- [x] **Ecosystem**: GhostMicro is a Robot OS, not just a controller board.
+- [x] **Index Maintenance**: If new projects or folders are created in the root, always update `docs/General/PROJECT_INDEX.md`.
 
 ---
 
 ## 🏗️ Technical Standards Hub
 
-| หัวข้อ                | แนวทางปฏิบัติ                                           | หมายเหตุ                              |
-| :------------------ | :--------------------------------------------------- | :----------------------------------- |
-| **I2C Shared Bus**  | อนุญาตให้แชร์ขา SDA/SCL ร่วมกันได้หลาย Module              | ลดความซับซ้อนของสายไฟ                  |
-| **GhostPass v8.2**  | **Position-based Salt Scrambling** (FNV-1a)          | ป้องกันคำซ้ำและเพิ่ม Entropy (มาตรฐานสูงสุด)  |
-| **Key Genesis API** | ใช้ `POST` (JSON) ไปที่ `/api/encode` หรือ `/api/decode` | มาตรฐานการขอ License ประจำโปรเจกต์     |
-| **Git Protocol**    | **SSH (Multi-Account Setup)**                        | จัดการสิทธิ์ 15 Repo ผ่านบอร์ดคนละ Account |
+| Topic               | Guideline                                            | Note                                       |
+| :------------------ | :--------------------------------------------------- | :----------------------------------------- |
+| **I2C Shared Bus**  | Multiple modules are allowed to share SDA/SCL pins.  | Reduces wiring complexity.                 |
+| **GhostPass v8.2**  | **Position-based Salt Scrambling** (FNV-1a).         | Prevents duplicates and increases entropy. |
+| **Key Genesis API** | Use `POST` (JSON) to `/api/encode` or `/api/decode`. | Project licensing standard.                |
+| **Git Protocol**    | **SSH (Multi-Account Setup)**.                       | Manage 15 repos via different accounts.    |
 
 ---
 
-## 📡 มาตรฐานการเรียกใช้ Key Genesis API (Licensing Engine)
+## 📡 Key Genesis API Usage Standards (Licensing Engine)
 
-เมื่อต้องการสร้าง (Encode) หรือตรวจทาน (Decode) กุญแจ Mnemonic ให้ปฏิบัติตามขั้นตอนนี้เสมอ:
+When creating (Encode) or verifying (Decode) Mnemonic keys, follow these steps:
 
-### 1. การสร้างกุญแจ (Encode)
+### 1. Encode Key
 **Endpoint:** `https://key-genesis.vercel.app/api/encode`  
 **Method:** `POST`  
-**Payload:** ส่งข้อมูล Metadata ครบถ้วนตามมาตรฐาน GhostPass
+**Payload:** Detailed Metadata following GhostPass standards.
 
-### 2. การตรวจสอบกุญแจ (Decode)
+### 2. Decode Key
 **Endpoint:** `https://key-genesis.vercel.app/api/decode`  
 **Method:** `POST`  
-**Payload:** `{ "phrase": "วลี 12 คำ" }`
+**Payload:** `{ "phrase": "12-word phrase" }`
 
 ---
 
-## 🔐 3. กฎการเชื่อมต่อ Git (Workspace Connectivity)
+## 🔐 3. Git Connectivity Rules (Workspace Connectivity)
 - **Primary Host:** `github.com-gridsmicro`
 - **Identity:** `Grids Jivapong <79008751+GhostMicro@users.noreply.github.com>`
-- **Rule:** ห้ามใช้ HTTPS ในการพุชงาน (Git Push) เพื่อป้องกันปัญหา 403 Forbidden และความสับสนเรื่องสิทธิ์ขององค์กร
+- **Rule:** Never use HTTPS for pushing code (Git Push) to avoid 403 Forbidden errors and permission conflicts.
 
 ---
 
-### เปลี่ยนชื่อ Brain เป็น Genesis แล้ว 
+### Name Change: Brain to Genesis
 
-ทุกส่วนในระบบ Log, UI Monitor และโครงสร้างคำสั่งภายในถูกเปลี่ยนเป็น Genesis เพื่อความต่อเนื่องของโปรเจกต์ (ไม่มีผลกระทบต่อความเสถียร เนื่องจากเป็นการแก้ไขชื่อ String และ Name Tag เท่านั้น)
+All system logs, UI monitors, and internal command structures have been renamed to Genesis for project consistency. (No impact on stability as these are string/tag changes only.)
 
-### กฎของโหมดสลีป (ZZZ Mode Rules) (Status : ปิดใช้งานชั่วคราว)
-1. **Trigger**: เปิดทำงานเมื่อพลังงานต่ำกว่า 2% หรือสั่งการด้วยมือผ่านคำสั่ง `set_mood: SLEEPING`
-2. **Behavior**: AI จะตอบสนองสั้นมากหรือเฉพาะคำว่า [ZZZ...] เพื่อประหยัดพลังงานประมวลผล
-3. **Recovery**: ระบบจะฟื้นตัว (Wake up) อัตโนมัติเมื่อค่าพลังงานเพิ่มขึ้น หรือเมื่อได้รับ Stimulus แรงๆ จาก Hardware (Reflex Layer) เช่น มีคนเดินตัดหน้าหุ่นยนต์ ระบบจะตื่นมาในโหมด `ALERT` ทันที
+### ZZZ Mode Rules (Status: Temporarily Disabled)
+1. **Trigger**: Activates when energy is below 2% or manually via `set_mood: SLEEPING`.
+2. **Behavior**: AI responses will be very short or limited to [ZZZ...] to save energy.
+3. **Recovery**: System wakes up automatically when energy increases or upon high-intensity Stimulus from hardware (Reflex Layer).
 
-### Folder Discription & Link URL
-- [x] **GitHub** - ระบบปฏิบัติการหุ่นยนต์ (OS) ของ GhostMicro และ Page Profile Developer โครงการ : `https://github.com/gridsmicro`
-- [ ] **ghost-instinct-factory** - ระบบสร้าง Ghost Instinct ผ่านบอร์ดคอนโทรลเลอร์ : `https://github.com/gridsmicro/ghost-instinct-factory` (Status : ปิดใช้งานชั่วคราว)
-- [x] **ghost-pass-v8** - ระบบยืนยันตัวตน version 8 (ปัจจุบัน 8.2) : `https://github.com/gridsmicro/ghost-pass-v8` (Status : Localhost)
-- [x] **ghost-pass-v8-doc** - เอกสารเฉพาะทางสำหรับ GhostPass V8 (ปัจจุบัน 8.2) : `https://github.com/gridsmicro/ghost-pass-v8-doc` (Status : Localhost)
-- [x] **gp-node-doc** - เอกสารเฉพาะทางสำหรับ GP-Node (key-genesis 1.0) Online API End Point : `https://github.com/gridsmicro/gp-node-doc`
-- [x] **key-genesis** - ระบบสร้างคำ 12 คำ (Mnemonic) ประจำเครื่อง (ระบบ API) ใช้สร้าง key เฉพาะเจาะจง สำหรับยืนยันตัวตน ภายในระบบ ecosystem ของ GhostMicro : `https://key-genesis.vercel.app` (Status : Online)
-- [x] **micro-iot-ai-robot** - สมองของระบบ AI Robot รันด้วย Python3 ใชใน Local Network (Status : run on OS start-up)
-- [x] **micro-iot-ai-robot-console** - Console ควบคุมทางกายภาพ ของระบบ IoT & Robot
-- [x] **micro-iot-ai-robot-docs** - เอกสารเฉพาะทางสำหรับ GhostMicro AI Robot (Status : Localhost)
-- [x] **micro-iot-ai-robot-firmware** - Code Firmware สำหรับ ฝั่ง Robot (Status : Developer)
-- [x] **micro-iot-ai-robot-hardware** - เอกสารรวมเกี่ยวกับฮาร์ดแวร์ของระบบ AI Robot (Status : Developer)
-- [x] **micro-iot-dashboard-1** - Dashboard Genesis (Status : Online)
-- [x] **micro-iot-dashboard-2** - Dashboard Industrial (Status : Online)
-- [x] **micro-iot-dashboard-3** - Dashboard Matrix (Status : Online)
-- [x] **micro-iot-dashboard-4** - Dashboard Minimal Lab (Status : Online)
-- [x] **micro-iot-dashboard-5** - Dashboard Ultra-Pro (Status : Online)
-- [x] **micro-iot-dashboard-6** - Dashboard Stark HUD (Status : Online)
-- [x] **micro-iot-dashboard-7** - Dashboard Tactical HUD (Status : Online)
-- [x] **micro-iot-dashboard-8** - Dashboard Tactical HUD (Status : Online)
-- [x] **micro-iot-dashboard-hub** - Dashboard Central Hub หน้ารวม AI  (Status : Offline Localhost)
-- [x] **micro-iot-gen** - Firmeware Create Code IoT For ESP32 GhostMicro Ecosystem (Status : Offline Localhost)
-- [x] **micro-iot-gen-doc** - เอกสารเฉพาะทางสำหรับ micro-iot-gen (Status : Offline Localhost)
-- [x] **micro-iot-library** - แหล่ง Download Library สำหรับ ESP32 สำหรับระบบ GhostMicro : `https://micro-iot-library.vercel.app/` (Status : Online)
-- [ ] **micro-iot-page** - หน้าแรกของระบบ : `https://micro-iot-page.vercel.app`  (Status : Offline Localhost)
+### Folder Descriptions & URLs
+- [x] **GitHub** - GhostMicro Robot OS and Developer Profile: `https://github.com/gridsmicro`
+- [ ] **ghost-instinct-factory** - Instinct generation via controller: `https://github.com/gridsmicro/ghost-instinct-factory` (Status: Disabled)
+- [x] **ghost-pass-v8** - Identity System v8.2: `https://github.com/gridsmicro/ghost-pass-v8` (Status: Localhost)
+- [x] **ghost-pass-v8-doc** - Docs for GhostPass V8.2: `https://github.com/gridsmicro/ghost-pass-v8-doc` (Status: Localhost)
+- [x] **gp-node-doc** - Docs for GP-Node (key-genesis 1.0): `https://github.com/gridsmicro/gp-node-doc`
+- [x] **key-genesis** - 12-word Mnemonic API for unique ID generation: `https://key-genesis.vercel.app` (Status: Online)
+- [x] **micro-iot-ai-robot** - AI Robot Brain (Python3) for local network: (Status: run on OS start-up)
+- [x] **micro-iot-ai-robot-console** - Physical console for IoT & Robot system.
+- [x] **micro-iot-ai-robot-docs** - Docs for GhostMicro AI Robot (Status: Localhost)
+- [x] **micro-iot-ai-robot-firmware** - Firmware code for Robot side (Status: Developer)
+- [x] **micro-iot-ai-robot-hardware** - Specs for AI Robot hardware (Status: Developer)
+- [x] **micro-iot-dashboard-1 to 8** - Vercel deployed dashboards (Status: Online)
+- [x] **micro-iot-dashboard-hub** - Central hub for AI dashboards (Status: Offline Localhost)
+- [x] **micro-iot-gen** - Firmware generator for GhostMicro IoT (Status: Offline Localhost)
+- [x] **micro-iot-library** - ESP32 Library download source: `https://micro-iot-library.vercel.app/` (Status: Online)
+- [ ] **micro-iot-page** - Main landing page: `https://micro-iot-page.vercel.app` (Status: Offline Localhost)
