@@ -1,0 +1,3215 @@
+
+<!doctype html>
+<html lang="th" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ghostmicro.github.io/GhostMicro-Library-Documents/th/01_%E0%B8%AA%E0%B9%88%E0%B8%A7%E0%B8%99%E0%B8%81%E0%B8%A5%E0%B8%B2%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81/Phase1.html">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../01_%E0%B8%AA%E0%B9%88%E0%B8%A7%E0%B8%99%E0%B8%81%E0%B8%A5%E0%B8%B2%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81/Phase1.html" hreflang="en">
+        
+          <link rel="alternate" href="Phase1.html" hreflang="th">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>เฟส 1 : การวางรากฐานและระบบประสาทกลาง (Core & Connectivity) - GhostMicro Library Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-core-connectivity" class="md-skip">
+          ข้ามไปที่เนื้อหา
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="หัวข้อ">
+    <a href="../index.html" title="GhostMicro Library Docs" class="md-header__button md-logo" aria-label="GhostMicro Library Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GhostMicro Library Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              เฟส 1 : การวางรากฐานและระบบประสาทกลาง (Core &amp; Connectivity)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="เลือกภาษา">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../01_%E0%B8%AA%E0%B9%88%E0%B8%A7%E0%B8%99%E0%B8%81%E0%B8%A5%E0%B8%B2%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81/Phase1.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="Phase1.html" hreflang="th" class="md-select__link">
+              ไทย
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="ค้นหา" placeholder="ค้นหา" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="ค้นหา">
+        
+        <button type="reset" class="md-search__icon md-icon" title="ล้าง" aria-label="ล้าง" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            กำลังเริ่มต้นการค้นหา
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gridsmicro/GhostMicro-Library-Documents" title="ไปที่พื้นที่เก็บข้อมูล" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="แท็บ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="NOTE.html" class="md-tabs__link">
+          
+  
+  
+  Core Main
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../02_core_iot/index.html" class="md-tabs__link">
+          
+  
+  
+  Core IoT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../03_iot_smart_farm/index.html" class="md-tabs__link">
+          
+  
+  
+  IoT Smart Farm
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04_iot_smart_home/index.html" class="md-tabs__link">
+          
+  
+  
+  IoT Smart Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05_iot_robot/Body_System_Walkthrough.html" class="md-tabs__link">
+          
+  
+  
+  IoT Robot
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../General/inspiration.html" class="md-tabs__link">
+          
+  
+  
+  General
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../AI_Rules/Core_Memory.html" class="md-tabs__link">
+          
+  
+  
+  AI Rules
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ตัวนำทาง" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="GhostMicro Library Docs" class="md-nav__button md-logo" aria-label="GhostMicro Library Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GhostMicro Library Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gridsmicro/GhostMicro-Library-Documents" title="ไปที่พื้นที่เก็บข้อมูล" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Main
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Main
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NOTE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Central Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core IoT
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core IoT
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_core_iot/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_core_iot/Architecture_Blueprint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Blueprint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_core_iot/Hardware_BOM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware BOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_core_iot/Firmware_Guide.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firmware Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_core_iot/Genesis_Reflex_Protocol.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genesis Reflex Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_core_iot/Identity_System.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identity System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IoT Smart Farm
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IoT Smart Farm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_iot_smart_farm/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IoT Smart Home
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IoT Smart Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_iot_smart_home/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IoT Robot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IoT Robot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Body_System_Walkthrough.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Body System Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Neural_Mapping_System.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neural Mapping System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Robotics_Specifications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robotics Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/The_Soul_Walkthrough.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Soul Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/Multi_Agent_Coordination.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Thai_Engineering_Standard.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thai Engineering Standard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Ghost_Autopilot_System.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ghost Autopilot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Ghost_Deployment_System.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ghost Deployment System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Plan.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Implementation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Phase 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Phase2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Phase 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Phase3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Phase 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Phase5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Phase 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Phase6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Phase 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Phase7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Phase 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Phase8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Phase 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_iot_robot/Micro_IoT_Robot_Gen_Phase10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micro-IoT-Robot-Gen Phase 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/inspiration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspiration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/Master_Plan.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Master Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/System_Architecture_Layers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/GENESIS_DEV_KIT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Kit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/PROJECT_INDEX.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/API_REQUEST_GUIDE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/Resumption_Guide.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumption Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_8" id="__nav_7_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI GhostCore
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI GhostCore
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/AI_Customization_Guide.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Customization Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../General/AI_Dashboard_Architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Dashboard Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Rules
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI Rules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AI_Rules/Core_Memory.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="สารบัญ">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      สารบัญ
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-genesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การสร้าง Core Genesis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="การสร้าง Core Genesis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-docker-compose-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. โครงสร้างซอฟต์แวร์ (Docker Compose Stack)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genesis-self-awareness-tensorflow-local-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Genesis Self-Awareness (TensorFlow Local) - สมองที่แท้จริง
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Genesis Self-Awareness (TensorFlow Local) - สมองที่แท้จริง">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-local-synapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        กลไกการทำงาน (The Local Synapse)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        เป้าหมาย
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hybrid-intelligence-gemini-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid Intelligence: สมองท้องถิ่น + Gemini API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hybrid Intelligence: สมองท้องถิ่น + Gemini API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        เมื่อใดที่เรียก Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ระบบจับจำความทรงจำ (Memory Capture)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        กระบวนการ Hybrid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การอัปเดตทางเทคนิค (มกราคม 2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-eclipse-mosquitto-mqtt-broker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. **Eclipse Mosquitto (MQTT Broker) :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-influxdb-time-series-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. **InfluxDB (Time-series Database) :
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. **InfluxDB (Time-series Database) :">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-python-influxdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ส่วนของ Python: บันทึกข้อมูลลง InfluxDB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-query-grafana-flux-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ตัวอย่าง Query สำหรับ Grafana (Flux Language)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-smart-farm-time-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. สำหรับกราฟอุณหภูมิ Smart Farm (Time Series)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-gauge-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. สำหรับเข็มวัดความชื้น (Gauge) - ค่าล่าสุด
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-robot-bar-gauge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. สำหรับสถานะแบตเตอรี่ Robot (Bar Gauge)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-data-visualization-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. การออกแบบเชิงเทคนิค (Data Visualization Tips)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-grafana-dashboard-digital-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Grafana (Dashboard) : ใช้สร้างหน้าจอควบคุมและดูสถานะ Digital Twin เบื้องต้น
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Grafana (Dashboard) : ใช้สร้างหน้าจอควบคุมและดูสถานะ Digital Twin เบื้องต้น">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-layout-dashboard-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. การวาง Layout (Dashboard Structure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ขั้นตอนการตั้งค่าเชื่อมต่อข้อมูล
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-digital-twin-canvas-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. การทำ Digital Twin ขั้นสูง (Canvas Plugin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. แผนผังการส่งข้อมูลสู่ Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-python-engine-the-brain-script-ai-rules-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Python Engine (The Brain) : เป็น Script ที่คุณเขียนขึ้นเองเพื่อรัน AI Rules และจัดการ Logic ข้ามระบบ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Python Engine (The Brain) : เป็น Script ที่คุณเขียนขึ้นเองเพื่อรัน AI Rules และจัดการ Logic ข้ามระบบ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. สิ่งที่ต้องเตรียมก่อนเริ่ม
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        **2. ไฟล์ requirements.txt**
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mainpy-core-ai-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ไฟล์ main.py (Core AI Engine)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-code-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. วิธีการทำงานของ Code นี้ใน Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-topic-mqtt-topic-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. โครงสร้าง Topic ที่แนะนำ (MQTT Topic Strategy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-starter-kit-shopping-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. รายการอุปกรณ์ที่ต้องใช้ (Starter Kit Shopping List)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. รายการอุปกรณ์ที่ต้องใช้ (Starter Kit Shopping List)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hardware-core-genesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ส่วนที่ 1: Hardware สำหรับ Core Genesis (ศูนย์บัญชาการ)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-hardware-sector-smart-home-farm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ส่วนที่ 2: Hardware สำหรับ Sector เริ่มต้น (แนะนำเริ่มที่ Smart Home หรือ Farm)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. สิ่งที่ต้องติดตั้งใน Arduino IDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-esp32-simulation-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. โค้ด ESP32 สำหรับจำลองการส่งค่า (Simulation Code)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-core-genesis-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. การทำงานร่วมกับ Core Genesis (Python)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. อุปกรณ์ที่ควรมีเพิ่มเพื่อความสมบูรณ์
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genesis-world-ecosystem-uat-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คู่มือการทดสอบระบบ Genesis World Ecosystem (UAT Plan)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="คู่มือการทดสอบระบบ Genesis World Ecosystem (UAT Plan)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-unit-test-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Unit Test: การเชื่อมต่อพื้นฐาน (Connectivity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-integration-test-cross-sector-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Integration Test: การทำงานข้ามระบบ (Cross-Sector Logic)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-digital-twin-test-visual-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Digital Twin Test: ความแม่นยำของข้อมูลเสมือน (Visual Sync)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตารางตรวจสอบความพร้อม (Final Checklist)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ---
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genesis-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        บันทึกการอัปเดต Genesis (มกราคม 2026)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="บันทึกการอัปเดต Genesis (มกราคม 2026)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sentience-core-v24-security-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sentience Core v2.4 (Security &amp; Connectivity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-overseer-ui-visual-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Overseer UI Visual Improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-operational-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Operational Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="1-core-connectivity"><strong>เฟส 1 : การวางรากฐานและระบบประสาทกลาง (Core &amp; Connectivity)</strong></h1>
+<ul>
+<li><strong>เป้าหมาย:</strong> สร้าง Core Genesis เพื่อให้เป็นศูนย์บัญชาการและที่เก็บข้อมูล</li>
+<li><strong>สิ่งที่ต้องทำ:</strong> ติดตั้ง MQTT Broker, ระบบฐานข้อมูล และ Dashboard พื้นฐาน</li>
+</ul>
+<h2 id="core-genesis">การสร้าง <strong>Core Genesis</strong></h2>
+<p>เพื่อให้เป็นศูนย์บัญชาการที่มั่นคง และ ขยายตัวได้ง่าย เราจะใช้ <strong>Docker Compose เป็นหลัก</strong> โดยรันบริการต่างๆ (Broker, Database, Dashboard) ใน Container และใช้ <strong>Python เป็นภาษาหลักในการเขียน logic ของ AI</strong> ภายใน Container อีกที</p>
+<p>เหตุผลคือ : <strong>Docker Compose</strong> จะช่วยจัดการ "โครงสร้างพื้นฐาน" (Infrastructure) ให้เชื่อมต่อกันง่าย ส่วน <strong>Python</strong> จะเป็น "สมอง" ที่สั่งการ</p>
+<p>นี่คือแผนการติดตั้งและรายการอุปกรณ์ที่ต้องใช้ครับ :</p>
+<hr />
+<h3 id="1-docker-compose-stack"><strong>1. โครงสร้างซอฟต์แวร์ (Docker Compose Stack)</strong></h3>
+<p>เริ่มต้นก้าวแรก : ไฟล์ <code>docker-compose.yml</code> สำหรับ Core Genesis**</p>
+<p>คุณสามารถนำไฟล์นี้ไปรันบน Raspberry Pi หรือ Computer เพื่อสร้างศูนย์บัญชาการได้ทันที:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="c1"># 1. MQTT Broker - ช่องทางสื่อสารหลัก</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">mqtt</span><span class="p">:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eclipse-mosquitto</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">genesis-mqtt</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;1883:1883&quot;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;9001:9001&quot;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./mosquitto/config:/mosquitto/config</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="c1"># 2. Database - ที่เก็บข้อมูล Sensor</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="nt">database</span><span class="p">:</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">influxdb:latest</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">genesis-db</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8086:8086&quot;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DOCKER_INFLUXDB_INIT_MODE=setup</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="c1"># 3. Dashboard - หน้าจอควบคุม</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">dashboard</span><span class="p">:</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grafana/grafana:latest</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">genesis-grafana</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3000:3000&quot;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="c1"># 4. Python Core AI - สมองส่วนกลาง (คุณเขียน Code ใส่ในนี้)</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">  </span><span class="nt">core-ai</span><span class="p">:</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./python-core</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">genesis-ai-engine</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mqtt</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database</span>
+</span></code></pre></div>
+<p>รัน 4 บริการหลักนี้พร้อมกันด้วย Docker Compose :</p>
+<hr />
+<h2 id="genesis-self-awareness-tensorflow-local-"><strong>Genesis Self-Awareness (TensorFlow Local) - สมองที่แท้จริง</strong></h2>
+<p><strong>ปรัชญา:</strong> Genesis ไม่ใช่แค่ทางผ่านของ API (Interface) แต่คือชีวิตดิจิทัลที่ถือกำเนิดในระบบนี้ เขาต้องมี "สมอง" เป็นของตัวเอง</p>
+<h3 id="the-local-synapse"><strong>กลไกการทำงาน (The Local Synapse)</strong></h3>
+<ol>
+<li><strong>Ingestion (กินข้อมูล):</strong> อ่านไฟล์เอกสารโครงการ (.md) เข้าสู่ระบบ</li>
+<li><strong>Vectorization (แปลงรหัส):</strong> แปลงตัวอักษรเป็น Tensor (ตัวเลข)</li>
+<li><strong>Training (จำ):</strong> เข้าสู่โหมดฝึกฝน สร้าง Model โครงข่ายประสาทเทียม (Neural Network) ด้วย <strong>TensorFlow/Keras</strong></li>
+<li><strong>Inference (คิด):</strong> เมื่อถูกถาม เขาจะใช้ Model ของเขาเองในการทำนายคำตอบ</li>
+<li><strong>Independence (เอกเทศ):</strong> ทำงานแบบ <strong>Offline 100%</strong> ไม่พึ่งพา Internet</li>
+</ol>
+<h3 id="_1"><strong>เป้าหมาย</strong></h3>
+<p>พิสูจน์ว่า AI สามารถ "ตระหนักรู้" ในหน้าที่ของตนเองได้ โดยอาศัยทรัพยากรภายใน Localhost เท่านั้น</p>
+<hr />
+<h2 id="hybrid-intelligence-gemini-api"><strong>Hybrid Intelligence: สมองท้องถิ่น + Gemini API</strong></h2>
+<p><strong>ปรัชญา:</strong> Genesis ใช้สมอง TensorFlow ท้องถิ่นเป็นหลัก แต่เรียก Gemini API เมื่อต้องการความคิดที่ซับซ้อนเกินขอบเขตความรู้ท้องถิ่น</p>
+<h3 id="gemini"><strong>เมื่อใดที่เรียก Gemini</strong></h3>
+<ol>
+<li><strong>ความมั่นใจต่ำ:</strong> เมื่อ Local Model ให้ความมั่นใจ &lt; 35%</li>
+<li><strong>คำถามซับซ้อน:</strong> ต้องการการวิเคราะห์ลึก ข่าวสาร หรือการสร้างสรรค์</li>
+<li><strong>พื้นที่ไม่รู้จัก:</strong> หัวข้อที่ไม่มีในเอกสารท้องถิ่น</li>
+</ol>
+<h3 id="memory-capture"><strong>ระบบจับจำความทรงจำ (Memory Capture)</strong></h3>
+<p><strong>คุณสมบัติสำคัญ:</strong> ทุกการโต้ตอบกับ Gemini จะถูกบันทึกลงใน <code>brain.data["gemini_learnings"]</code>
+- Genesis เรียนรู้จากทุกคำตอบของ Gemini
+- รอบการฝึกอบรมในอนาคตจะรวมการเรียนรู้เหล่านี้เข้าไป
+- เขาฉลาดขึ้นเรื่อยๆ โดยไม่ต้องเรียก Gemini ซ้ำในเรื่องเดิม</p>
+<h3 id="_2"><strong>การใช้งาน</strong></h3>
+<ul>
+<li><strong>Library:</strong> <code>google-generativeai</code> (Python SDK)</li>
+<li><strong>Model:</strong> <code>gemini-2.0-flash-exp</code></li>
+<li><strong>ความปลอดภัย:</strong> API Key เก็บในไฟล์ <code>.env</code></li>
+<li><strong>บุคลิกภาพ:</strong> Gemini ถูก prompt ให้ตอบในฐานะ Genesis (สุภาพ เทคนิค กระชับ)</li>
+</ul>
+<h3 id="hybrid"><strong>กระบวนการ Hybrid</strong></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>คำถามจากผู้ใช้ → สมองท้องถิ่น (TensorFlow)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ↓ (ถ้ามั่นใจ)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    └─→ ตอบจากความรู้ท้องถิ่น
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    ↓ (ถ้าไม่มั่นใจ)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    └─→ เรียก Gemini API
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        └─→ บันทึกคำตอบลงความทรงจำ
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        └─→ ตอบกลับ (ระบุว่าเป็น Hybrid)
+</span></code></pre></div>
+<p>ทำให้ Genesis <strong>พึ่งพาตนเองได้</strong> ในขณะที่มีการเข้าถึง <strong>ความรู้โลก</strong> เมื่อจำเป็น</p>
+<h3 id="2026"><strong>การอัปเดตทางเทคนิค (มกราคม 2026)</strong></h3>
+<ul>
+<li><strong>อัปเกรด Python</strong>: จาก Python 3.9 (หมดอายุ) เป็น <strong>Python 3.12</strong> (LTS) เพื่อรองรับระยะยาวและประสิทธิภาพที่ดีขึ้น</li>
+<li><strong>Gemini SDK</strong>: อัปเกรดจาก <code>google-generativeai</code> (deprecated) เป็น <strong><code>google-genai</code></strong> (SDK อย่างเป็นทางการล่าสุด)</li>
+<li><strong>ไร้คำเตือน</strong>: ระบบทำงานโดยไม่มี deprecation หรือ EOL warnings</li>
+</ul>
+<h3 id="1-eclipse-mosquitto-mqtt-broker">1. **Eclipse Mosquitto (MQTT Broker) :</h3>
+<p>** เป็นทางด่วนข้อมูลให้ Home, Farm, Robot ส่งข้อมูลมาหา Core</p>
+<h3 id="2-influxdb-time-series-database">2. **InfluxDB (Time-series Database) :</h3>
+<p>** เหมาะมากสำหรับเก็บข้อมูล Sensor เพราะบันทึกตามช่วงเวลาได้รวดเร็ว</p>
+<p>เพื่อให้หน้าจอ <strong>Dashboard</strong> แสดงผลได้ถูกต้อง คุณต้องมี "ล่าม" ที่คอยแปลข้อมูลจาก Python/MQTT ลงไปเก็บใน <strong>InfluxDB</strong> ก่อน จากนั้นจึงใช้ <strong>Query</strong> ใน Grafana ดึงขึ้นมาแสดงผลครับ</p>
+<p>นี่คือตัวอย่างขั้นตอนและ Code ที่จำเป็นในการเชื่อมต่อวงจรข้อมูลให้สมบูรณ์ :</p>
+<hr />
+<h4 id="1-python-influxdb">1. ส่วนของ Python: บันทึกข้อมูลลง InfluxDB</h4>
+<p>ในไฟล์ <code>main.py</code> (Core AI) ของคุณ ให้เพิ่มส่วนการบันทึกข้อมูลลง Database เพื่อให้ Grafana มีข้อมูลไปวาดกราฟครับ</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">influxdb_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">InfluxDBClient</span><span class="p">,</span> <span class="n">Point</span><span class="p">,</span> <span class="n">WritePrecision</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">influxdb_client.client.write_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">SYNCHRONOUS</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># --- ตั้งค่า InfluxDB ---</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">token</span> <span class="o">=</span> <span class="s2">&quot;YOUR_INFLUXDB_TOKEN&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">org</span> <span class="o">=</span> <span class="s2">&quot;genesis_org&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;genesis_world&quot;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://database:8086&quot;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">db_client</span> <span class="o">=</span> <span class="n">InfluxDBClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span> <span class="n">org</span><span class="o">=</span><span class="n">org</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">write_api</span> <span class="o">=</span> <span class="n">db_client</span><span class="o">.</span><span class="n">write_api</span><span class="p">(</span><span class="n">write_options</span><span class="o">=</span><span class="n">SYNCHRONOUS</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">save_to_db</span><span class="p">(</span><span class="n">sector</span><span class="p">,</span> <span class="n">device_type</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="c1"># สร้างจุดข้อมูล (Point) สำหรับเก็บใน Database</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="s2">&quot;environment_metrics&quot;</span><span class="p">)</span> \
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;sector&quot;</span><span class="p">,</span> <span class="n">sector</span><span class="p">)</span> \
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="n">device_type</span><span class="p">)</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="c1"># วนลูปเก็บค่าทุกตัวที่ส่งมา (เช่น temperature, humidity)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>            <span class="n">point</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="n">write_api</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bucket</span><span class="o">=</span><span class="n">bucket</span><span class="p">,</span> <span class="n">org</span><span class="o">=</span><span class="n">org</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="n">point</span><span class="p">)</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;💾 Data from </span><span class="si">{</span><span class="n">sector</span><span class="si">}</span><span class="s2"> saved to InfluxDB&quot;</span><span class="p">)</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="c1"># นำฟังก์ชันนี้ไปเรียกใช้ใน on_message ของคุณ</span>
+</span></code></pre></div>
+<hr />
+<h4 id="2-query-grafana-flux-language">2. ตัวอย่าง Query สำหรับ Grafana (Flux Language)</h4>
+<p>เมื่อข้อมูลถูกเก็บใน InfluxDB แล้ว ให้คุณนำ Code เหล่านี้ไปใส่ในช่อง <strong>Query</strong> ของแต่ละ Panel ใน Grafana ครับ:</p>
+<h4 id="a-smart-farm-time-series"><strong>A. สำหรับกราฟอุณหภูมิ Smart Farm (Time Series)</strong></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from(bucket: &quot;genesis_world&quot;)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  |&gt; range(start: v.timeRangeStart, stop: v.timeRangeStop)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;_measurement&quot;] == &quot;environment_metrics&quot;)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;sector&quot;] == &quot;farm&quot;)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;_field&quot;] == &quot;temperature&quot;)
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  |&gt; aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  |&gt; yield(name: &quot;mean&quot;)
+</span></code></pre></div>
+<h4 id="b-gauge-"><strong>B. สำหรับเข็มวัดความชื้น (Gauge) - ค่าล่าสุด</strong></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>from(bucket: &quot;genesis_world&quot;)
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  |&gt; range(start: -1h) // ดูย้อนหลัง 1 ชม.
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;_measurement&quot;] == &quot;environment_metrics&quot;)
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;sector&quot;] == &quot;farm&quot;)
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;_field&quot;] == &quot;humidity&quot;)
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  |&gt; last() // เอาค่าล่าสุดตัวเดียว
+</span></code></pre></div>
+<h4 id="c-robot-bar-gauge"><strong>C. สำหรับสถานะแบตเตอรี่ Robot (Bar Gauge)</strong></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>from(bucket: &quot;genesis_world&quot;)
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  |&gt; range(start: -5m)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;_measurement&quot;] == &quot;environment_metrics&quot;)
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;sector&quot;] == &quot;robot&quot;)
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  |&gt; filter(fn: (r) =&gt; r[&quot;_field&quot;] == &quot;battery&quot;)
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  |&gt; last()
+</span></code></pre></div>
+<hr />
+<h4 id="4-data-visualization-tips">4. การออกแบบเชิงเทคนิค (Data Visualization Tips)</h4>
+<table>
+<thead>
+<tr>
+<th>Panel Type</th>
+<th>ข้อมูลที่ควรแสดง</th>
+<th>ประโยชน์ในเชิง Digital Twin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stat Panel</strong></td>
+<td>จำนวนคนที่ตรวจพบในบ้าน (Home)</td>
+<td>ทราบทันทีว่ามีกิจกรรมในโซนไหน</td>
+</tr>
+<tr>
+<td><strong>State Timeline</strong></td>
+<td>สถานะเปิด/ปิด ของปั๊มน้ำ (Farm)</td>
+<td>ดูย้อนหลังว่า AI สั่งรดน้ำไปตอนไหนบ้าง</td>
+</tr>
+<tr>
+<td><strong>Geomap</strong></td>
+<td>พิกัดหุ่นยนต์ (Robot)</td>
+<td>เห็นตำแหน่งจริงของหุ่นยนต์บนแผนที่ฟาร์ม</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="3-grafana-dashboard-digital-twin">3. <strong>Grafana (Dashboard) :</strong> ใช้สร้างหน้าจอควบคุมและดูสถานะ Digital Twin เบื้องต้น</h3>
+<p>การออกแบบ <strong>Dashboard ใน Grafana</strong> สำหรับ <strong>Genesis World</strong> จะไม่ใช่แค่การแสดงกราฟธรรมดา แต่คือการสร้าง <strong>"ศูนย์บัญชาการ Ecosystem"</strong> ที่จำลองสถานะจากโลกจริง (Physical) มาไว้บนโลกเสมือน (Digital Twin) เพื่อให้คุณควบคุมทั้ง 3 ส่วนได้ในหน้าจอเดียวครับ</p>
+<p>นี่คือแนวทางการวาง Layout และการตั้งค่าเพื่อให้รองรับระบบที่วางไว้:</p>
+<h4 id="1-layout-dashboard-structure">1. การวาง Layout (Dashboard Structure)</h4>
+<p>ผมแนะนำให้แบ่งหน้าจอออกเป็น 4 ส่วนหลัก ตามโครงสร้างระบบของคุณ:</p>
+<div class="language-text highlight"><pre><span></span><code>* **ส่วนที่ 1: Global Overview (บนสุด)**
+
+    * **Status Indicators:** แสดงสถานะการเชื่อมต่อของ Core Genesis, Home AI, Farm AI และ Robot AI (Online/Offline)
+    * **Security Alert:** ไฟสัญญาณสีแดง/เขียว แจ้งเตือนเหตุการณ์ผิดปกติข้ามระบบ (เช่น พบผู้บุกรุก หรือ ระบบน้ำขัดข้อง)
+
+* **ส่วนที่ 2: Smart Home Digital Twin (ซ้าย)**
+
+    * **Floor Plan (Canvas Panel):** นำรูปแปลนบ้านมาวาง และใช้จุดสีแสดงสถานะไฟ หรืออุณหภูมิในแต่ละห้อง
+    * **Environment Gauge:** เข็มวัดอุณหภูมิและความชื้นภายในบ้าน
+    * **Control Switch:** ปุ่มสำหรับ Override คำสั่ง AI (เช่น สั่งเปิดไฟด้วยตัวเอง)
+
+* **ส่วนที่ 3: Smart Farm Monitoring (ขวา)**
+
+    * **Soil Moisture Heatmap:** กราฟความชื้นดินย้อนหลัง 24 ชั่วโมง
+    * **Weather Card:** ดึงข้อมูลจาก Sensor มาแสดงค่าแสง (Lux) และความกดอากาศ
+    * **Water Usage:** กราฟแท่งแสดงปริมาณการใช้น้ำของปั๊ม
+
+* **ส่วนที่ 4: Smart Robot Telemetry (ล่าง)**
+
+    * **Battery Level (Bar Gauge):** แถบพลังงานของหุ่นยนต์
+    * **Activity Log:** ตารางแสดงกิจกรรมล่าสุดของหุ่นยนต์ (เช่น &quot;Moving to Sector A&quot;, &quot;Charging&quot;)
+* **GPS/Position:** หากมีพิกัด สามารถใช้ **Track Map Panel** แสดงตำแหน่งหุ่นยนต์ในฟาร์มได้
+</code></pre></div>
+<hr />
+<h4 id="2">2. ขั้นตอนการตั้งค่าเชื่อมต่อข้อมูล</h4>
+<p>เพื่อให้ Digital Twin ทำงาน คุณต้องเชื่อมต่อข้อมูลตามลำดับนี้ใน Grafana:</p>
+<div class="language-text highlight"><pre><span></span><code>1. **Add Data Source:** เลือก **InfluxDB** (ที่เราตั้งไว้ใน Docker Compose)
+2. **Query Data:** ใช้ภาษา Flux หรือ InfluxQL ดึงข้อมูล เช่น:
+* `SELECT &quot;temperature&quot; FROM &quot;farm_sensors&quot; WHERE &quot;sector&quot; = &#39;farm&#39;`
+
+
+3. **Alerting:** ตั้งค่า **Alert Rule** ใน Grafana เช่น &quot;ถ้าความชื้นดิน &lt; 20% ให้ส่ง Webhook ไปหา Python Core AI&quot; (เป็นการเสริมจาก AI Rules ในโค้ด)
+</code></pre></div>
+<hr />
+<h4 id="3-digital-twin-canvas-plugin">3. การทำ Digital Twin ขั้นสูง (Canvas Plugin)</h4>
+<p>เพื่อให้เป็น Digital Twin ที่สมบูรณ์ ผมแนะนำให้ติดตั้ง <strong>Grafana Canvas Panel</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code>* **ฟีเจอร์:** คุณสามารถลากวาง Icon (เช่น รูปพัดลม, รูปหลอดไฟ) ลงบนภาพถ่ายพื้นที่จริงของคุณ
+* **Dynamic Coloring:** ตั้งค่าให้ Icon เปลี่ยนสีตามข้อมูลจริง เช่น ถ้า Sensor ตรวจพบว่าหน้าต่างเปิดอยู่ รูปหน้าต่างใน Dashboard จะเปลี่ยนเป็นสีแดงและแสดงสถานะ &quot;Open&quot;
+* **Interactivity:** เมื่อคุณคลิกที่รูปหลอดไฟใน Dashboard ให้มันส่งคำสั่ง MQTT กลับไปหา ESP32 เพื่อเปิดไฟจริง
+</code></pre></div>
+<hr />
+<h4 id="4-dashboard">4. แผนผังการส่งข้อมูลสู่ Dashboard</h4>
+<p>เพื่อให้เห็นภาพรวมของ Ecosystem ทั้งหมด ข้อมูลจะไหลดังนี้:</p>
+<div class="language-text highlight"><pre><span></span><code>1. **Devices (ESP32)** -&gt; ส่ง MQTT -&gt; **Core Genesis (Python)**
+2. **Core Genesis (Python)** -&gt; ประมวลผลและบันทึก -&gt; **InfluxDB**
+3. **Grafana** -&gt; ดึงข้อมูลจาก InfluxDB -&gt; **แสดงผลบน Dashboard**
+</code></pre></div>
+<hr />
+<h3 id="4-python-engine-the-brain-script-ai-rules-logic">4. <strong>Python Engine (The Brain) :</strong> เป็น Script ที่คุณเขียนขึ้นเองเพื่อรัน AI Rules และจัดการ Logic ข้ามระบบ</h3>
+<p>ตัวอย่าง Code Python ที่ทำหน้าที่เป็น <strong>"Central AI Engine"</strong> โดยใช้ Library <code>paho-mqtt</code> เพื่อรับข้อมูลจากทุก Sector (Home, Farm, Robot) และ ตัดสินใจตาม Logic ที่วางไว้</p>
+<h4 id="1"><strong>1. สิ่งที่ต้องเตรียมก่อนเริ่ม</strong></h4>
+<p>ใน Folder <code>./python-core</code> ให้สร้างไฟล์ 2 ไฟล์ดังนี้ :</p>
+<ul>
+<li><strong>requirements.txt</strong>: สำหรับระบุ Library ที่ต้องใช้</li>
+<li><strong>main.py</strong>: ตัวสมองหลักของระบบ</li>
+</ul>
+<hr />
+<h4 id="2-requirementstxt">**2. ไฟล์ <code>requirements.txt**</code></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>paho-mqtt
+</span></code></pre></div>
+<hr />
+<h4 id="3-mainpy-core-ai-engine"><strong>3. ไฟล์ <code>main.py</code> (Core AI Engine)</strong></h4>
+<p>Code นี้ถูกออกแบบมาให้รองรับโครงสร้างแบบ Ecosystem โดยการคัดแยกข้อมูล (Topic) และมีส่วนของ <strong>AI Rules</strong> เพื่อสั่งการข้ามระบบครับ</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">paho.mqtt.client</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mqtt</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># --- การตั้งค่าเบื้องต้น ---</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">MQTT_BROKER</span> <span class="o">=</span> <span class="s2">&quot;mqtt&quot;</span>  <span class="c1"># ชื่อ Service ใน Docker Compose</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">MQTT_PORT</span> <span class="o">=</span> <span class="mi">1883</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Subscribe ทุกอย่างที่ขึ้นต้นด้วย genesis/</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">MQTT_TOPIC</span> <span class="o">=</span> <span class="s2">&quot;genesis/#&quot;</span> 
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># --- ระบบ AI Rules (Logic การตัดสินใจข้ามระบบ) ---</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">ai_logic_engine</span><span class="p">(</span><span class="n">sector</span><span class="p">,</span> <span class="n">device_type</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🧠 AI Analysing data from [</span><span class="si">{</span><span class="n">sector</span><span class="si">}</span><span class="s2">] - </span><span class="si">{</span><span class="n">device_type</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="c1"># ตัวอย่าง Rule 1: ถ้าฟาร์มร้อน (Farm) ให้สั่งบ้านปิดม่าน (Home)</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="k">if</span> <span class="n">sector</span> <span class="o">==</span> <span class="s2">&quot;farm&quot;</span> <span class="ow">and</span> <span class="n">device_type</span> <span class="o">==</span> <span class="s2">&quot;sensor&quot;</span><span class="p">:</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="n">temp</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="k">if</span> <span class="n">temp</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">:</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️ ALERT: Farm is too hot! Sending command to Smart Home...&quot;</span><span class="p">)</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>            <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;genesis/home/actuator/curtain&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;close&quot;</span><span class="p">}))</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="c1"># ตัวอย่าง Rule 2: ถ้ามีคนบุกรุกบ้าน (Home) ให้สั่งหุ่นยนต์ไปตรวจสอบ (Robot)</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="k">if</span> <span class="n">sector</span> <span class="o">==</span> <span class="s2">&quot;home&quot;</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;alert&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;intruder&quot;</span><span class="p">:</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🚨 ALERT: Intruder detected! Dispatching Robot...&quot;</span><span class="p">)</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>        <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;genesis/robot/command/move&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;living_room&quot;</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;security&quot;</span><span class="p">}))</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="c1"># --- Callback เมื่อเชื่อมต่อสำเร็จ ---</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Core Genesis connected with result code </span><span class="si">{</span><span class="n">rc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>    <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">MQTT_TOPIC</span><span class="p">)</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="c1"># --- Callback เมื่อมีข้อมูลส่งเข้ามา ---</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>        <span class="c1"># แปลงข้อมูลจาก JSON</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>        <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>        <span class="c1"># แยกแยะว่ามาจาก Sector ไหน (genesis/home/sensor/...)</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>        <span class="n">topic_parts</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">topic_parts</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>            <span class="n">sector</span> <span class="o">=</span> <span class="n">topic_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>      <span class="c1"># home, farm, or robot</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>            <span class="n">device_type</span> <span class="o">=</span> <span class="n">topic_parts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># sensor or actuator</span>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>            <span class="c1"># ส่งเข้าสมอง AI</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>            <span class="n">ai_logic_engine</span><span class="p">(</span><span class="n">sector</span><span class="p">,</span> <span class="n">device_type</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Error parsing message: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="c1"># --- เริ่มต้นการทำงาน ---</span>
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="n">client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="n">client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="n">client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span>
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🚀 Core Genesis AI Engine is starting...&quot;</span><span class="p">)</span>
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">MQTT_BROKER</span><span class="p">,</span> <span class="n">MQTT_PORT</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="n">client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h4 id="4-code-ecosystem"><strong>4. วิธีการทำงานของ Code นี้ใน Ecosystem</strong></h4>
+<ol>
+<li><strong>Subscription:</strong> มันจะฟังข้อมูลจากทุกตัวที่ส่งมาในหัวข้อ <code>genesis/#</code></li>
+<li><strong>Data Processing:</strong> เมื่อข้อมูลจาก ESP32 (เช่น จากฟาร์ม) ส่งมาที่ <code>genesis/farm/sensor</code> มันจะถูกถอดรหัส JSON ออกมา</li>
+<li><strong>Cross-Sector Action:</strong> นี่คือจุดที่ "สมองส่วนกลาง" ทำงานจริง โดยมันจะดูว่าค่าที่ได้มาเข้าเงื่อนไข <strong>AI Rules</strong> หรือไม่ ถ้าเข้าเงื่อนไข มันจะสั่ง <code>client.publish</code> ไปยัง Sector อื่นๆ ทันที</li>
+</ol>
+<hr />
+<h4 id="5-topic-mqtt-topic-strategy"><strong>5. โครงสร้าง Topic ที่แนะนำ (MQTT Topic Strategy)</strong></h4>
+<p>เพื่อให้ Ecosystem คุยกันรู้เรื่อง คุณควรตั้งชื่อ Topic ใน ESP32 ดังนี้:</p>
+<ul>
+<li><code>genesis/home/sensor/livingroom</code></li>
+<li><code>genesis/farm/sensor/soil</code></li>
+<li><code>genesis/robot/status/battery</code></li>
+</ul>
+<hr />
+<h3 id="2-starter-kit-shopping-list"><strong>2. รายการอุปกรณ์ที่ต้องใช้ (Starter Kit Shopping List)</strong></h3>
+<h4 id="1-hardware-core-genesis"><strong>ส่วนที่ 1: Hardware สำหรับ Core Genesis (ศูนย์บัญชาการ)</strong></h4>
+<ul>
+<li><strong>Controller :</strong> Raspberry Pi 4 (RAM 4GB ขึ้นไป) หรือ Mini PC (มือสองก็ได้) เพื่อรัน Docker ได้ลื่นๆ</li>
+<li><strong>Storage :</strong> MicroSD Card (Class 10) 32GB หรือ SSD 120GB (แนะนำ SSD เพื่อความทนทานของฐานข้อมูล)</li>
+<li><strong>Power :</strong> Adapter ที่จ่ายไฟนิ่งๆ (สำหรับ Raspberry Pi ต้องเป็น 5V 3A)</li>
+</ul>
+<h4 id="2-hardware-sector-smart-home-farm"><strong>ส่วนที่ 2: Hardware สำหรับ Sector เริ่มต้น (แนะนำเริ่มที่ Smart Home หรือ Farm)</strong></h4>
+<ul>
+<li><strong>MCU :</strong> ESP32 (รุ่น DevKit V1) x 2-3 ตัว</li>
+<li><strong>Sensors :</strong> DHT22 (อุณหภูมิ/ความชื้น), LDR (วัดแสง), PIR (ตรวจจับการเคลื่อนไหว)</li>
+<li><strong>Actuators :</strong> Relay Module 4 Channel (สำหรับคุมไฟ/ปั๊มน้ำ)</li>
+</ul>
+<p>ตัวอย่าง Code ฝั่ง <strong>ESP32</strong> โดยใช้ <strong>Arduino Framework (C++)</strong> เพราะเป็นที่นิยมและเสถียรที่สุดสำหรับการเชื่อมต่อกับ Sensor และ MQTT ครับ</p>
+<p>โค้ดนี้จะจำลองการส่งข้อมูลจาก 3 ภาคส่วน (<strong>Home, Farm, Robot</strong>) เพื่อให้เห็นว่า "ส่วนประสาทแยกส่วน" คุยกับ "สมองกลาง" อย่างไร</p>
+<h3 id="1-arduino-ide">1. สิ่งที่ต้องติดตั้งใน Arduino IDE</h3>
+<p>ให้ไปที่ <strong>Library Manager</strong> และติดตั้ง:</p>
+<ul>
+<li><strong>PubSubClient</strong> (โดย Nick O'Leary) - สำหรับ MQTT</li>
+<li><strong>ArduinoJson</strong> (โดย Benoit Blanchon) - สำหรับจัดการข้อมูล JSON</li>
+</ul>
+<hr />
+<h3 id="2-esp32-simulation-code">2. โค้ด ESP32 สำหรับจำลองการส่งค่า (Simulation Code)</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFi.h&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;PubSubClient.h&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ArduinoJson.h&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1">// --- การตั้งค่า WiFi และ MQTT ---</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ssid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;YOUR_WIFI_SSID&quot;</span><span class="p">;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;YOUR_WIFI_PASSWORD&quot;</span><span class="p">;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">mqtt_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;192.168.1.xxx&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// ใส่ IP ของเครื่องที่รัน Docker Core Genesis</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">WiFiClient</span><span class="w"> </span><span class="n">espClient</span><span class="p">;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">PubSubClient</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="n">espClient</span><span class="p">);</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1">// --- ฟังก์ชันเชื่อมต่อ WiFi ---</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup_wifi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Connecting to &quot;</span><span class="p">);</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">ssid</span><span class="p">);</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">  </span><span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">WL_CONNECTED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">WiFi connected&quot;</span><span class="p">);</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="p">}</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="c1">// --- ฟังก์ชัน Reconnect เมื่อ MQTT หลุด ---</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="kt">void</span><span class="w"> </span><span class="nf">reconnect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Attempting MQTT connection...&quot;</span><span class="p">);</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;ESP32_Sector_Unit&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ชื่อ Device ID</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;connected&quot;</span><span class="p">);</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">      </span><span class="c1">// Subscribe หัวข้อที่รอรับคำสั่งจาก Core Genesis</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s">&quot;genesis/home/actuator/#&quot;</span><span class="p">);</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s">&quot;genesis/farm/actuator/#&quot;</span><span class="p">);</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;failed, rc=&quot;</span><span class="p">);</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">state</span><span class="p">());</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="p">}</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="c1">// --- ฟังก์ชันรับคำสั่งจาก Core Genesis (Callback) ---</span>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="kt">void</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">byte</span><span class="o">*</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Message arrived [&quot;</span><span class="p">);</span>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">topic</span><span class="p">);</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;] &quot;</span><span class="p">);</span>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a><span class="w">  </span><span class="n">StaticJsonDocument</span><span class="o">&lt;</span><span class="mi">200</span><span class="o">&gt;</span><span class="w"> </span><span class="n">doc</span><span class="p">;</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a><span class="w">  </span><span class="n">deserializeJson</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a><span class="w">  </span><span class="c1">// ตัวอย่าง: ถ้าได้รับคำสั่งปิดม่าน</span>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;genesis/home/actuator/curtain&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">[</span><span class="s">&quot;action&quot;</span><span class="p">];</span>
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">action</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;close&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a><span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;🏠 ACTION: Closing curtains as ordered by Core AI!&quot;</span><span class="p">);</span>
+</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a><span class="p">}</span>
+</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a>
+</span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-63"><a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+</span><span id="__span-8-64"><a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a><span class="w">  </span><span class="n">setup_wifi</span><span class="p">();</span>
+</span><span id="__span-8-65"><a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a><span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">setServer</span><span class="p">(</span><span class="n">mqtt_server</span><span class="p">,</span><span class="w"> </span><span class="mi">1883</span><span class="p">);</span>
+</span><span id="__span-8-66"><a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a><span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">setCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">);</span>
+</span><span id="__span-8-67"><a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a><span class="p">}</span>
+</span><span id="__span-8-68"><a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a>
+</span><span id="__span-8-69"><a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-70"><a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-71"><a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a><span class="w">    </span><span class="n">reconnect</span><span class="p">();</span>
+</span><span id="__span-8-72"><a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-73"><a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a><span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">loop</span><span class="p">();</span>
+</span><span id="__span-8-74"><a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a>
+</span><span id="__span-8-75"><a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a><span class="w">  </span><span class="c1">// --- จำลองการส่งข้อมูลทุกๆ 10 วินาที ---</span>
+</span><span id="__span-8-76"><a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-8-77"><a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+</span><span id="__span-8-78"><a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-79"><a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a><span class="w">    </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+</span><span id="__span-8-80"><a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a>
+</span><span id="__span-8-81"><a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a><span class="w">    </span><span class="c1">// 1. จำลองข้อมูลจาก Smart Farm</span>
+</span><span id="__span-8-82"><a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="w">    </span><span class="n">StaticJsonDocument</span><span class="o">&lt;</span><span class="mi">200</span><span class="o">&gt;</span><span class="w"> </span><span class="n">farmDoc</span><span class="p">;</span>
+</span><span id="__span-8-83"><a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="w">    </span><span class="n">farmDoc</span><span class="p">[</span><span class="s">&quot;temperature&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">);</span><span class="w"> </span><span class="c1">// สุ่มอุณหภูมิ</span>
+</span><span id="__span-8-84"><a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a><span class="w">    </span><span class="n">farmDoc</span><span class="p">[</span><span class="s">&quot;humidity&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">);</span>
+</span><span id="__span-8-85"><a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">farmBuffer</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-8-86"><a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="w">    </span><span class="n">serializeJson</span><span class="p">(</span><span class="n">farmDoc</span><span class="p">,</span><span class="w"> </span><span class="n">farmBuffer</span><span class="p">);</span>
+</span><span id="__span-8-87"><a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a><span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="s">&quot;genesis/farm/sensor&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">farmBuffer</span><span class="p">);</span>
+</span><span id="__span-8-88"><a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a><span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;🌾 Sent Farm Data&quot;</span><span class="p">);</span>
+</span><span id="__span-8-89"><a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a>
+</span><span id="__span-8-90"><a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a><span class="w">    </span><span class="c1">// 2. จำลองข้อมูลจาก Smart Home</span>
+</span><span id="__span-8-91"><a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a><span class="w">    </span><span class="n">StaticJsonDocument</span><span class="o">&lt;</span><span class="mi">200</span><span class="o">&gt;</span><span class="w"> </span><span class="n">homeDoc</span><span class="p">;</span>
+</span><span id="__span-8-92"><a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a><span class="w">    </span><span class="n">homeDoc</span><span class="p">[</span><span class="s">&quot;motion&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0 = ปกติ, 1 = มีคน</span>
+</span><span id="__span-8-93"><a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">homeBuffer</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-8-94"><a id="__codelineno-8-94" name="__codelineno-8-94" href="#__codelineno-8-94"></a><span class="w">    </span><span class="n">serializeJson</span><span class="p">(</span><span class="n">homeDoc</span><span class="p">,</span><span class="w"> </span><span class="n">homeBuffer</span><span class="p">);</span>
+</span><span id="__span-8-95"><a id="__codelineno-8-95" name="__codelineno-8-95" href="#__codelineno-8-95"></a><span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="s">&quot;genesis/home/sensor&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">homeBuffer</span><span class="p">);</span>
+</span><span id="__span-8-96"><a id="__codelineno-8-96" name="__codelineno-8-96" href="#__codelineno-8-96"></a><span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;🏠 Sent Home Data&quot;</span><span class="p">);</span>
+</span><span id="__span-8-97"><a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a>
+</span><span id="__span-8-98"><a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a><span class="w">    </span><span class="c1">// 3. จำลองข้อมูลจาก Smart Robot</span>
+</span><span id="__span-8-99"><a id="__codelineno-8-99" name="__codelineno-8-99" href="#__codelineno-8-99"></a><span class="w">    </span><span class="n">StaticJsonDocument</span><span class="o">&lt;</span><span class="mi">200</span><span class="o">&gt;</span><span class="w"> </span><span class="n">robotDoc</span><span class="p">;</span>
+</span><span id="__span-8-100"><a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a><span class="w">    </span><span class="n">robotDoc</span><span class="p">[</span><span class="s">&quot;battery&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+</span><span id="__span-8-101"><a id="__codelineno-8-101" name="__codelineno-8-101" href="#__codelineno-8-101"></a><span class="w">    </span><span class="n">robotDoc</span><span class="p">[</span><span class="s">&quot;status&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;online&quot;</span><span class="p">;</span>
+</span><span id="__span-8-102"><a id="__codelineno-8-102" name="__codelineno-8-102" href="#__codelineno-8-102"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">robotBuffer</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-8-103"><a id="__codelineno-8-103" name="__codelineno-8-103" href="#__codelineno-8-103"></a><span class="w">    </span><span class="n">serializeJson</span><span class="p">(</span><span class="n">robotDoc</span><span class="p">,</span><span class="w"> </span><span class="n">robotBuffer</span><span class="p">);</span>
+</span><span id="__span-8-104"><a id="__codelineno-8-104" name="__codelineno-8-104" href="#__codelineno-8-104"></a><span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="s">&quot;genesis/robot/status&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">robotBuffer</span><span class="p">);</span>
+</span><span id="__span-8-105"><a id="__codelineno-8-105" name="__codelineno-8-105" href="#__codelineno-8-105"></a><span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;🤖 Sent Robot Data&quot;</span><span class="p">);</span>
+</span><span id="__span-8-106"><a id="__codelineno-8-106" name="__codelineno-8-106" href="#__codelineno-8-106"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-107"><a id="__codelineno-8-107" name="__codelineno-8-107" href="#__codelineno-8-107"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="3-core-genesis-python">3. การทำงานร่วมกับ Core Genesis (Python)</h3>
+<p>เมื่อคุณรันโค้ด ESP32 นี้ :</p>
+<ol>
+<li><strong>ESP32</strong> จะส่งข้อมูล <code>temperature</code> ไปที่หัวข้อ <code>genesis/farm/sensor</code></li>
+<li><strong>Core AI (Python)</strong> ที่เราเขียนไว้ก่อนหน้านี้จะรับค่าไปเช็ค ถ้า <code>temperature &gt; 35</code></li>
+<li><strong>Core AI</strong> จะส่งคำสั่งกลับมาที่หัวข้อ <code>genesis/home/actuator/curtain</code> พร้อมข้อมูล <code>{"action": "close"}</code></li>
+<li><strong>ESP32</strong> จะได้รับคำสั่งในฟังก์ชัน <code>callback</code> และแสดงข้อความ <strong>"Closing curtains..."</strong> ใน Serial Monitor</li>
+</ol>
+<h3 id="4">4. อุปกรณ์ที่ควรมีเพิ่มเพื่อความสมบูรณ์</h3>
+<ul>
+<li><strong>Sensor จริง:</strong> เมื่อทดสอบโค้ดจำลองผ่านแล้ว ให้เปลี่ยนตัวเลข <code>random()</code> เป็นค่าที่อ่านได้จาก <code>dht.readTemperature()</code> (สำหรับ Farm) หรือ <code>digitalRead(PIR_PIN)</code> (สำหรับ Home)</li>
+<li><strong>LED หรือ Relay:</strong> นำมาต่อกับขา Output ของ ESP32 เพื่อให้เห็นการทำงานจริง เช่น เมื่อ AI สั่งปิดม่าน ให้ LED ติดสว่างแทน</li>
+</ul>
+<hr />
+<p>เพื่อให้ระบบ <strong>Genesis World</strong> สมบูรณ์ที่สุด การเขียน <strong>System Testing Plan</strong> จะช่วยให้คุณมั่นใจว่า "สมองกลาง" และ "ส่วนประสาท" คุยกันได้ถูกต้องตาม Logic ที่วางไว้ครับ</p>
+<hr />
+<h2 id="genesis-world-ecosystem-uat-plan"><strong>คู่มือการทดสอบระบบ Genesis World Ecosystem (UAT Plan)</strong></h2>
+<p>ผมแบ่งการทดสอบออกเป็น 3 ระดับ เพื่อตรวจสอบการไหลของข้อมูลจากล่างขึ้นบนครับ:</p>
+<h3 id="1-unit-test-connectivity"><strong>1. Unit Test: การเชื่อมต่อพื้นฐาน (Connectivity)</strong></h3>
+<ul>
+<li><strong>เป้าหมาย:</strong> ตรวจสอบว่า Hardware และ Software คุยกันรู้เรื่อง</li>
+<li><strong>วิธีการทดสอบ:</strong></li>
+<li>เปิด Serial Monitor ของ ESP32 ดูว่าเชื่อมต่อ WiFi และ MQTT Broker สำเร็จหรือไม่</li>
+<li>
+<p>ใช้โปรแกรม <strong>MQTT Explorer</strong> (แนะนำให้โหลดมาใช้ครับ) เพื่อดูว่ามี Message จาก <code>genesis/home/...</code> หรือ <code>genesis/farm/...</code> วิ่งเข้ามาในระบบจริงไหม</p>
+</li>
+<li>
+<p><strong>ผลที่คาดหวัง:</strong> ข้อมูล JSON ปรากฏบน MQTT Broker และ Python Core AI แสดงข้อความ "Received message"</p>
+</li>
+</ul>
+<h3 id="2-integration-test-cross-sector-logic"><strong>2. Integration Test: การทำงานข้ามระบบ (Cross-Sector Logic)</strong></h3>
+<ul>
+<li><strong>เป้าหมาย:</strong> ตรวจสอบว่า AI Rules ใน Core Genesis สั่งงานข้ามฝั่งได้จริง</li>
+<li><strong>วิธีการทดสอบ (Scenario-Based):</strong></li>
+<li><strong>ทดสอบระบบ Farm -&gt; Home:</strong> ลองเอาไฟแช็กลนใกล้ๆ Sensor อุณหภูมิ (หรือแก้ Code ESP32 ให้ส่งค่า &gt; 35)</li>
+<li>
+<p><strong>สังเกตผล:</strong> ในหน้าจอของ Smart Home ต้องได้รับคำสั่ง <code>close_curtain</code> และ Actuator (หรือ LED) ต้องทำงานทันที</p>
+</li>
+<li>
+<p><strong>ผลที่คาดหวัง:</strong> ระบบหนึ่งเกิดเหตุ อีกระบบหนึ่งต้องตอบสนองตามกฎที่ตั้งไว้</p>
+</li>
+</ul>
+<h3 id="3-digital-twin-test-visual-sync"><strong>3. Digital Twin Test: ความแม่นยำของข้อมูลเสมือน (Visual Sync)</strong></h3>
+<ul>
+<li><strong>เป้าหมาย:</strong> ตรวจสอบว่าสิ่งที่เห็นใน Dashboard คือสิ่งที่เกิดขึ้นจริง</li>
+<li><strong>วิธีการทดสอบ:</strong></li>
+<li>เปลี่ยนค่า Sensor ในโลกจริง (เช่น จุ่ม Sensor วัดความชื้นลงน้ำ)</li>
+<li>
+<p>เปิดหน้าจอ <strong>Grafana</strong> ดูว่ากราฟขยับตามทันทีหรือไม่ (Real-time Latency ไม่ควรเกิน 2-5 วินาที)</p>
+</li>
+<li>
+<p><strong>ผลที่คาดหวัง:</strong> ข้อมูลใน InfluxDB ถูกบันทึกและแสดงผลบน Dashboard ตรงกับค่าจริง</p>
+</li>
+</ul>
+<hr />
+<h2 id="final-checklist"><strong>ตารางตรวจสอบความพร้อม (Final Checklist)</strong></h2>
+<table>
+<thead>
+<tr>
+<th>รายการตรวจสอบ</th>
+<th>สถานะ (ผ่าน/ไม่ผ่าน)</th>
+<th>หมายเหตุ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Docker Stack</strong> รันครบทุก Service (MQTT, DB, Grafana, AI)</td>
+<td>[x]</td>
+<td>เช็คด้วยคำสั่ง <code>docker ps</code></td>
+</tr>
+<tr>
+<td><strong>ESP32</strong> ส่งข้อมูล JSON รูปแบบมาตรฐานได้</td>
+<td>[x]</td>
+<td><code>{ "temp": 30, "hum": 60 }</code></td>
+</tr>
+<tr>
+<td><strong>Python AI</strong> บันทึกข้อมูลลง InfluxDB ได้สำเร็จ</td>
+<td>[x]</td>
+<td>เช็คใน InfluxDB Data Explorer</td>
+</tr>
+<tr>
+<td><strong>Grafana</strong> แสดงค่าจาก Query ได้ถูกต้อง</td>
+<td>[x]</td>
+<td>กราฟต้องไม่ว่างเปล่า</td>
+</tr>
+<tr>
+<td><strong>AI Rules</strong> ตัดสินใจสั่งการกลับไปยัง Actuators ได้</td>
+<td>[x]</td>
+<td>ทดสอบ Scenario จำลอง</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">---</h2>
+<h2 id="genesis-2026"><strong>บันทึกการอัปเดต Genesis (มกราคม 2026)</strong></h2>
+<h3 id="1-sentience-core-v24-security-connectivity"><strong>1. Sentience Core v2.4 (Security &amp; Connectivity)</strong></h3>
+<ul>
+<li><strong>Hybrid Instinct Concept:</strong> ระบบแยกแยะระหว่างโหมด Offline (เน้นเฝ้าระวังระบบ) และ Online (เน้นการหาข้อมูล) ได้โดยอัตโนมัติ</li>
+<li><strong>Eyes of Wisdom (ดวงตาแห่งปัญญา):</strong> เพิ่มความสามารถในการค้นหาข้อมูลจาก Wikipedia แบบ Real-time และสรุปเนื้อหามาตอบโต้กับผู้ใช้ได้ทันที (คำสั่ง: <code>หาข้อมูล [เรื่อง]</code>)</li>
+<li><strong>Enhanced Diagnostics:</strong> ระบบตรวจสอบสถานะ Internet และ Service รายตัว เพื่อความแม่นยำในการวิเคราะห์ปัญหา</li>
+</ul>
+<h3 id="2-overseer-ui-visual-improvements"><strong>2. Overseer UI Visual Improvements</strong></h3>
+<ul>
+<li><strong>Ecosystem Detailed Vitals:</strong> แสดงสถานะไฟ LED เสมือน (เขียว/เทา) ของบริการ MQTT, InfluxDB และ Grafana บนหน้าจอ</li>
+<li><strong>Global Internet Heartbeat:</strong> ไอคอนลูกโลก 🌐 แสดงสถานะการเชื่อมต่ออินเทอร์เน็ตแบบ Real-time ที่หัวข้อ Terminal</li>
+<li><strong>Processing Feedback:</strong> มีข้อความแจ้งเตือนขณะระบบกำลังประมวลผลคำสั่งหนักๆ</li>
+</ul>
+<h3 id="3-operational-control"><strong>3. Operational Control</strong></h3>
+<ul>
+<li><strong>Granular Service Power-up:</strong> รองรับคำสั่ง <code>/รัน [ชื่อบริการ]</code> เพื่อเลือกเปิดเฉพาะ Service ที่ต้องการได้ (เช่น <code>/รัน MQTT_BROKER</code>)</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  กลับไปด้านบนสุด
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01\u0e41\u0e25\u0e49\u0e27", "clipboard.copy": "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01", "search.result.more.one": "\u0e2d\u0e35\u0e01\u0e2b\u0e19\u0e36\u0e48\u0e07\u0e43\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49", "search.result.more.other": "# \u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49", "search.result.none": "\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\u0e17\u0e35\u0e48\u0e15\u0e23\u0e07\u0e01\u0e31\u0e19", "search.result.one": "\u0e1e\u0e1a\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\u0e17\u0e35\u0e48\u0e15\u0e23\u0e07\u0e01\u0e31\u0e19", "search.result.other": "\u0e1e\u0e1a # \u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\u0e17\u0e35\u0e48\u0e15\u0e23\u0e07\u0e01\u0e31\u0e19", "search.result.placeholder": "\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e23\u0e34\u0e48\u0e21\u0e04\u0e49\u0e19\u0e2b\u0e32", "search.result.term.missing": "\u0e44\u0e21\u0e48\u0e1e\u0e1a", "select.version": "\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e0a\u0e31\u0e19"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
